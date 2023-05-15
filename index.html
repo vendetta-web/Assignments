@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="index.css">
+    <title>HTML+CSS</title>
+    <link rel="icon" type="image/x-icon" href="https://gyansys.com/images/60x60-gyansys-icon.png">
+</head>
+<body>
+    <header>
+        <nav>
+        <ul class="nav">
+            <li><a><img src="https://gyansys.com/images/logos/gyansys-logo-white.png" alt="gyansys inc."></a></li>
+            <li><a href="#">Home</a></li> 
+            <li><a href="#">Page 1</a></li> 
+            <li><a href="#">Page 2</a></li> 
+            <li><a href="#" id="accountOpenBtn" onclick="openAccount()">Account</a></li>
+            <li><a href="#" id="submitOpenBtn" onclick="openLead()">Submit Lead</a></li>
+            <li><a class="active">New!</a></li> 
+        </ul>
+    </nav>
+    </header>
+    <section class="header">
+        <h1>SAP &amp; Salesforce</h1>
+             <div class="header-content">
+                <p>As one of the most widely used enterprise resource planning solutions on the market, SAP plays a central
+                    role in the most critical business processes for many companies. In order to fully automate and optimize
+                    these business processes, companies need to integrate SAP with other applications within their
+                    organization. <br> <br>
+    
+                    One of the most common SAP integration scenarios is integration between SAP and customer relationship
+                    management (CRM) applications. A pioneer of Software as a Service (SaaS) applications, Salesforce.com is
+                    the current market leader in CRM applications. </p>
+                 </div>
+    </section>
+    <section class="services" style="background-color: #333;">
+        <div class="left-column">
+            <h2>Salesforce Services</h2>
+            <p>Salesforce is the world’s most trusted customer relationship management (CRM) platform. We help your
+                marketing, sales, commerce, service and IT teams work as one from anywhere — so you can keep your
+                customers happy everywhere.</p>
+        </div>
+        <div class="right-column">
+            <div class="service">
+                <img src="https://www.salesforce.com/news/wp-content/uploads/sites/3/2021/05/Salesforce-logo.jpg"
+                    alt="Salesforce" />
+            </div>
+        </div>
+    </section>
+
+    <section class="services" style="background-color: #555;">
+        <div class="left">
+            <div class="service">
+                <img src="https://download.logo.wine/logo/SAP_SE/SAP_SE-Logo.wine.png" alt="SAP" />
+            </div>
+        </div>
+        <div class="right">
+            <h2>SAP Services</h2>
+            <p>We put your success at the center of everything we do with services and support that provide a holistic
+                experience across your organization’s unique digital journey – right from the start and for years to
+                come.</p>
+        </div>
+
+    </section>
+    <div id="accountDialog" class="dialog">
+        <h2>Account</h2>
+        <div id="firstName"></div>
+        <div id="lastName"></div>
+        <div id="username"></div>
+        <div id="email"></div>
+        <br>
+        <div id="address"></div>
+        <div id="street_address"></div>
+        <div id="city"></div>
+        <div id="state"></div>
+        <div id="country"></div>
+        <div id="zip_code"></div>
+        <button class="btnClose" id="closeAccountBtn">Close</button>
+    </div>
+
+    <div id="submitLeadDialog" class="dialog">
+        <h2>Submit Lead</h2>
+        <form id="leadForm">
+            <label for="name">Name:</label>
+            <input type="text" id="name" required>
+            <label for="email">Email:</label>
+            <input type="email" id="email" required>
+            <label for="leadName">Lead Name:</label>
+            <input type="text" id="leadName" required>
+            <label for="description">Description:</label>
+            <input type="text" id="description"></input>
+            <button type="button" class="btnCancel" id="cancelLeadBtn">Cancel</button>
+            <button type="submit" class="btnSubmit" id="submitLeadBtnForm">Submit</button>
+        </form>
+    </div>
+    <div id="overlay"></div>
+    
+    <footer class="footer">
+        <p>&copy; 2023 All copyright reserve: Saurabh Dixit</p>
+    </footer>
+      <script defer src="index.js"></script>
+</body>
+</html>
