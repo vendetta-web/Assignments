@@ -1,0 +1,59 @@
+<template>
+  <lightning-card title="Task Manager">
+    <div class="slds-m-around_medium">
+      <div class="slds-grid slds-wrap">
+        <div class="slds-size_1-of-2">
+          <lightning-input label="Title" value={title} onchange={handleTitleChange} required></lightning-input>
+        </div>
+        <div class="slds-col slds-size_1-of-2">
+          <lightning-input type="date" label="Due Date" value={dueDate} onchange={handleDueDateChange} required></lightning-input>
+        </div>
+        <div class="slds-col slds-size_1-of-1">
+          <lightning-textarea label="Description" value={description} onchange={handleDescriptionChange}></lightning-textarea>
+        </div>
+        <div class="slds-col slds-size_1-of-1">
+          <lightning-button variant="brand" label="Add Task" title="Add Task" onclick={addTask}></lightning-button>
+        </div>
+      </div>
+    </div>
+    <template for:each={tasks} for:item="task" for:index="index">
+      <div key={task.Id} class="slds-m-around_medium slds-p-around_medium slds-box slds-theme_shade">
+        <div class="slds-grid slds-wrap">
+          <div class="slds-col slds-size_1-of-1 slds-medium-size_3-of-4">
+            <p><strong>Title:</strong> {task.Title__c}</p>
+            <p><strong>Due Date:</strong> {task.Due_Date__c}</p>
+            <p><strong>Description:</strong> {task.Description__c}</p>
+          </div>
+          <div class="slds-col slds-size_1-of-1 slds-medium-size_1-of-4">
+            <div class="slds-float_right">
+              <lightning-button variant="destructive" label="Delete" title="Delete" onclick={deleteTask} data-task-id={task.Id}></lightning-button>
+              <lightning-button variant="brand" label="Edit" title="Edit" onclick={editTask} data-task-id={task.Id}></lightning-button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </template>
+    
+     <!-- Modal Popup -->
+    <template if:true={showModal}>
+      <div class="slds-backdrop slds-backdrop_open"></div>
+      <section role="dialog" tabindex="-1" aria-modal="true" aria-describedby="modal-content" class="slds-modal slds-fade-in-open">
+        <div class="slds-modal__container">
+          <header class="slds-modal__header">
+            <h2 id="modal-heading-01" class="slds-text-heading_medium slds-hyphenate">Edit Task</h2>
+          </header>
+          <div class="slds-modal__content slds-p-around_medium" id="modal-content">
+            <!-- Place your edit form fields here -->
+            <lightning-input label="Title" value={editedTitle} onchange={handleEditedTitleChange} required></lightning-input>
+            <lightning-input type="date" label="Due Date" value={editedDueDate} onchange={handleEditedDueDateChange} required></lightning-input>
+            <lightning-textarea label="Description" value={editedDescription} onchange={handleEditedDescriptionChange}></lightning-textarea>
+          </div>
+          <footer class="slds-modal__footer">
+            <lightning-button variant="brand" label="Save" title="Save" onclick={saveTask}></lightning-button>
+            <lightning-button variant="neutral" label="Cancel" title="Cancel" onclick={cancelEdit}></lightning-button>
+          </footer>
+        </div>
+      </section>
+    </template>
+  </lightning-card>
+</template>
