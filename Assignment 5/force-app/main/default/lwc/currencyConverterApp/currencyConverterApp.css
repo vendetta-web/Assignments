@@ -1,0 +1,13 @@
+
+.container{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 16px;
+  background-image: radial-gradient(red, green, blue);}
+.result{
+  font-size: 24px;
+  margin-bottom: 24px;
+  font-weight: bold;
+  color: whitesmoke;
+}
