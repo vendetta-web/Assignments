@@ -3,13 +3,12 @@
   <lightning-card>
       <div class="container"> 
           <form onsubmit={submitHandler}>
-            <h1 class="slds-text-heading_large slds-text-color_inverse 
-            slds-text-align_center slds-m-bottom_large">Currency Converter</h1>
-            <lightning-input type="number" name="amount" label="Amount" 
-            placeholder="Amount" variant="label-hidden" required 
-            class="slds-m-vertical_x-large" onchange={handleChange}></lightning-input>
-
+            <h1 class="slds-text-heading_large slds-text-color_inverse">Currency Converter</h1>
             <div class="slds-grid slds-gutters baseline slds-m-vertical_x-large">
+              <div class="slds-col">
+                <lightning-input type="number" name="amount" label="Amount" 
+            placeholder="Amount" variant="label-hidden" required onchange={handleChange}></lightning-input>
+              </div>
               <div class="slds-col">
                 <lightning-combobox
                   name="countryFrom"
@@ -19,10 +18,6 @@
                   placeholder="Currency"
                   options={countryList}
                   onchange={handleChange} ></lightning-combobox>
-              </div>
-              <div class="slds-col slds-text-align_center ">
-                <lightning-icon icon-name='action:change_record_type' alternative-text='change_record_type'
-                 size='small' title='Convert icon' class="custom-icon"></lightning-icon>
               </div>
               <div class="slds-col">
                 <lightning-combobox
@@ -34,6 +29,10 @@
                   options={countryList}
                   onchange={handleChange} ></lightning-combobox>
               </div>
+              <div class="slds-col">
+                <lightning-button label="Convert" icon-name="utility:convert"
+                type="submit" class="slds-align_absolute-center" variant="brand"></lightning-button>
+              </div>
             </div>
             <div class="slds-text-align_center">
               <template if:true={result}>
@@ -43,7 +42,6 @@
                <div class="result">{error}</div>
                </template>
             </div>
-            <lightning-button class="slds-align_absolute-center" type="submit" label="Convert" variant="brand"></lightning-button>
           </form>
       </div>
   </lightning-card>
