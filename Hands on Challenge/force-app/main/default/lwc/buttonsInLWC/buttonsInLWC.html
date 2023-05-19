@@ -1,0 +1,28 @@
+<template>
+    <lightning-card title="Add Buttons In LWC Datatable Salesforce" icon-name="standard:account">
+        <div class="slds-m-around_medium">
+            <div class="slds-grid slds-wrap">
+              <div class="slds-size_1-of-2">
+                <lightning-input label="Title" value={title} onchange={handleTitleChange} required></lightning-input>
+              </div>
+              <div class="slds-col slds-size_1-of-2">
+                <lightning-input type="date" label="Due Date" value={dueDate} onchange={handleDueDateChange} required></lightning-input>
+              </div>
+              <div class="slds-col slds-size_1-of-1">
+                <lightning-textarea label="Description" value={description} onchange={handleDescriptionChange}></lightning-textarea>
+              </div>
+              <div class="slds-col slds-size_1-of-1">
+                <lightning-button variant="brand" label="Add Task" title="Add Task" onclick={addTask}></lightning-button>
+              </div>
+            </div>
+          </div>
+        <template if:true={data}>
+            <lightning-datatable key-field="Id" data={data} columns={columns} hide-checkbox-column="true"
+                show-row-number-column="true" onrowaction={callRowAction}>
+            </lightning-datatable>
+        </template>
+        <template if:true={error}>
+            {error}>
+        </template>
+    </lightning-card>
+</template>

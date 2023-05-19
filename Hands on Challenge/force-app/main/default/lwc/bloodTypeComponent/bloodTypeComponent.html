@@ -1,0 +1,24 @@
+<template>
+  <lightning-card title="Blood Type Information" icon-name="standard:user">
+    <div class="slds-m-around_medium">
+      <template if:true={bloodType}>
+        <p>Blood Type: {bloodType}</p>
+        <p>Blood Group: {bloodGroup}</p>
+        <template if:true={user}>
+          <p>Associated User:</p>
+          <p>Name: {user.name}</p>
+          <p>Email: {user.email}</p>
+        </template>
+        <template if:false={user}>
+          <p>No user information available.</p>
+        </template>
+      </template>
+      <template if:false={bloodType}>
+        <p>No blood type information available.</p>
+      </template>
+      <div class="slds-m-top_medium">
+        <lightning-button label="Fetch New Record" variant="brand" onclick={fetchBloodType}></lightning-button>
+      </div>
+    </div>
+  </lightning-card>
+</template>

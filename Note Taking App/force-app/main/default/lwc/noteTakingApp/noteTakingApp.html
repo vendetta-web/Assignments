@@ -1,0 +1,56 @@
+<template>
+    <div class="app">
+        <div class="box box-center" onclick={createNoteHandler}>
+            <div class="dotted-circle">
+                <lightning-icon icon-name='utility:add' class="custom-icon" alternative-text='add' size='large'
+                    title='add'></lightning-icon>
+            </div>
+            <h2>Add New Note</h2>
+        </div>
+
+        <div class="box slds-var-m-bottom_medium">
+            <header>
+                <h2 class="slds-truncate">Note Heading</h2>
+            </header>
+            <div class="notes">
+                description text will come here
+            </div>
+            <footer>
+                <div class="date">Tue Jan 10 2023</div>
+                <div>
+                    <lightning-icon icon-name='action:edit' alternative-text='edit' size='xx-small' title='edit note'
+                        class="edit-icon slds-var-m-right_x-small"></lightning-icon>
+                    <lightning-icon icon-name='action:delete' alternative-text='delete' size='xx-small' title='delete'
+                        class="delete-icon"></lightning-icon>
+                </div>
+            </footer>
+        </div>
+    </div>
+
+    <!-- modals -->
+    <template if:true={showModal}>
+        <section role="dialog" tabindex="-1" aria-modal="true" class="slds-modal slds-fade-in-open">
+            <div class="slds-modal__container">
+                <div class="slds-modal__header">
+                    <h1 class="slds-modal__title">Add New Note</h1>
+                    <form>
+                        <lightning-input type="text" label="Title" name="Name" value={noteRecord.Name}
+                            class="slds-m-bottom_medium" onchange={changeHandler}>
+                        </lightning-input>
+                        <lightning-input-rich-text value={noteRecord.Note_Description__c} label="Description" name="Note_Description__c" label-visible
+                            formats={formats} onchange={changeHandler}>
+
+                        </lightning-input-rich-text>
+                    </form>
+                </div>
+                <div class="slds-modal__content slds-p-around_medium">
+                </div>
+                <div class="slds-modal__footer">
+                    <button class="slds-button slds-button_neutral">Cancel</button>
+                    <button class="slds-button slds-button_brand">Save</button>
+                </div>
+            </div>
+        </section>
+        <div class="slds-backdrop slds-backdrop_open" role="presentation"></div>
+    </template>
+</template>
