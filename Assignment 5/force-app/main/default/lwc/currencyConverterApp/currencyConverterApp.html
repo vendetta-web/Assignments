@@ -1,0 +1,49 @@
+<!-- sldsValidatorIgnore -->
+<template>
+  <lightning-card>
+      <div class="container" style={backgroundStyle}> 
+          <form onsubmit={submitHandler}>
+            <h1>{headerText}</h1>
+            <div class="slds-grid slds-gutters baseline slds-m-vertical_x-large">
+              <div class="slds-col">
+                <lightning-input type="number" name="amount" label="Amount" 
+            placeholder="Amount" variant="label-hidden" required onchange={handleChange}></lightning-input>
+              </div>
+              <div class="slds-col">
+                <lightning-combobox
+                  name="countryFrom"
+                  label="From"
+                  variant="label-hidden" 
+                  value={countryFrom}
+                  placeholder="Currency"
+                  options={countryList}
+                  onchange={handleChange} ></lightning-combobox>
+              </div>
+              <div class="slds-col">
+                <lightning-combobox
+                  name="countryTo"
+                  label="To"
+                  variant="label-hidden" 
+                  value={countryTo}
+                  placeholder="Currency"
+                  options={countryList}
+                  onchange={handleChange} ></lightning-combobox>
+              </div>
+              <div class="slds-col">
+                <lightning-button label="Convert" icon-name="utility:convert"
+                type="submit" class="slds-align_absolute-center" variant="brand"></lightning-button>
+              </div>
+            </div>
+            <div class="slds-text-align_center">
+              <template if:true={result}>
+                <div style={conversionRateStyle} class="result">{amount} {countryFrom} = <span class="result-to">{result} {countryTo}</span></div>
+               
+              </template>
+              <template if:true={error}>
+               <div class="result">{error}</div>
+               </template>
+            </div>
+          </form>
+      </div>
+  </lightning-card>
+</template>

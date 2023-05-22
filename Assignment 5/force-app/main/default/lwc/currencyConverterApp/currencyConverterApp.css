@@ -1,0 +1,14 @@
+
+.container{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 16px;
+  /* background-image: url('https://gyansys.com/wp-content/uploads/2022/10/light-streaks.jpeg') */
+}
+.result{
+  font-size: 24px;
+  margin-bottom: 24px;
+  font-weight: bold;
+  /* color: whitesmoke; */
+}

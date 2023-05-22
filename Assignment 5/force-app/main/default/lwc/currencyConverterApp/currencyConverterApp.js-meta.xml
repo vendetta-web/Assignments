@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<LightningComponentBundle xmlns="http://soap.sforce.com/2006/04/metadata">
+    <apiVersion>55.0</apiVersion>
+    <isExposed>true</isExposed>
+    <masterLabel>Exchange Rate Converter</masterLabel>
+    <targets>
+        <target>lightning__AppPage</target>
+        <target>lightningCommunity__Page</target>
+        <target>lightningCommunity__Default</target>
+    </targets>
+    <targetConfigs>
+        <targetConfig targets="lightningCommunity__Default">
+            <property name="headerText" type="String" label="Component Header Text"
+                default="Currency Converter" />
+            <property name="conversionRateColor" type="String" label="Conversion Rate Color"
+                default="#000000" />
+            <property name="backgroundColor" type="String" label="Background Color"
+                default="#ffffff" />
+            <property name="decimalPlaces" type="Integer" label="Decimal Places for Conversion Rate Result" default="2" />
+
+        </targetConfig>
+    </targetConfigs>
+</LightningComponentBundle>
