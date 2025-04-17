@@ -5,6 +5,15 @@
         .catch(error => console.log(error));
 }
 
+//Dynamically Footer Year
+function setFooterYear(authorName = "Saurabh Dixit") {
+        const year = new Date().getFullYear();
+        const footerText = `© ${year} All copyright reserve: ${authorName}`;
+        document.getElementById("footer-text").textContent = footerText;
+    }
+
+   setFooterYear();
+
 // Account dialog
 function openAccount(){
 const accountOpenBtn = document.getElementById('accountOpenBtn');
